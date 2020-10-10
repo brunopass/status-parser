@@ -1,7 +1,7 @@
-const ClientError = require("./entities/ClientError")
-const InformationalResponse = require("./entities/InformationalResponse")
-const Redirection = require("./entities/Redirection")
-const Success = require("./entities/Success")
+const ClientError = require("./src/entities/ClientError")
+const InformationalResponse = require("./src/entities/InformationalResponse")
+const Redirection = require("./src/entities/Redirection")
+const Success = require("./src/entities/Success")
 
 class Status{
     #options
