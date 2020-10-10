@@ -32,3 +32,5 @@ class Status{
 }
 
 module.exports = Status
+
+console.log( JSON.stringify(new Status().success().Accepted()))

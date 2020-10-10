@@ -13,7 +13,7 @@ const Schema = data => {
     return{
             status: status,
             message: message,
-            data: success
+            success: success
         }
 }
 
