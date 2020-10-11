@@ -4,7 +4,7 @@ const Redirection = require("./src/entities/Redirection")
 const ServerError = require("./src/entities/ServerError")
 const Success = require("./src/entities/Success")
 
-class Status{
+class StatusParser{
     #options
     constructor(options){
         this.#options = options
@@ -52,6 +52,6 @@ class Status{
     
 }
 
-const status = new Status
+const status = new StatusParser
 
 module.exports = status
