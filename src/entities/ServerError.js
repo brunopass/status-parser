@@ -1,5 +1,7 @@
 'use strict'
 
+const Schema = require("../schema")
+
 class ServerError{
     
     /**
@@ -112,3 +114,5 @@ class ServerError{
         return Schema({status: 511, error: message || msg, message: msg})
     }
 }
+
+module.exports = ServerError

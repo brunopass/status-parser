@@ -1,6 +1,7 @@
 const ClientError = require("./src/entities/ClientError")
 const InformationalResponse = require("./src/entities/InformationalResponse")
 const Redirection = require("./src/entities/Redirection")
+const ServerError = require("./src/entities/ServerError")
 const Success = require("./src/entities/Success")
 
 class Status{
@@ -13,7 +14,7 @@ class Status{
     /** 
     *Contains 1xx informational status responses
     */
-    informationalResponse(){
+    information(){
         return new InformationalResponse()
     }
 
