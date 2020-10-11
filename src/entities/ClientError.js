@@ -1,5 +1,6 @@
 'use strict'
 
+const Schema = require("../schema")
 
 class ClientError {
 
