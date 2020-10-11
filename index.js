@@ -5,11 +5,6 @@ const ServerError = require("./src/entities/ServerError")
 const Success = require("./src/entities/Success")
 
 class StatusParser{
-    #options
-    constructor(options){
-        this.#options = options
-    }
-
     //1xx
     /** 
     *Contains 1xx informational status responses
@@ -52,6 +47,6 @@ class StatusParser{
     
 }
 
-const status = new StatusParser
+const status = new StatusParser()
 
 module.exports = status

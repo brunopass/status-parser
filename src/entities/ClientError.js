@@ -110,7 +110,7 @@ class ClientError {
     * @return {[JSON]} JSON{ status: integer, error: string, message: string}
     */
     Gone(message){
-        const msg = ' resource requested is no longer available'
+        const msg = 'resource requested is no longer available'
         return Schema({status: 410, error: message || msg, message: msg})
     }
 
