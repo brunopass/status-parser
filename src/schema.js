@@ -1,5 +1,5 @@
-const Schema = data => {
-    const {status, message, success, error} = data
+const Schema = payload => {
+    const {status, message, data, error} = payload
 
     if(error){
         return{
@@ -12,7 +12,7 @@ const Schema = data => {
     return{
             status: status,
             message: message,
-            data: success
+            data: data
         }
 }
 
