@@ -70,7 +70,7 @@ class ServerError{
     * @return {[JSON]} JSON{ status: integer, error: string, message: string}
     */
     VariantAlsoNegotiates(message){
-        const msg = 'http protocol version not supported'
+        const msg = 'circular reference'
         return Schema({status: 506, error: message || msg, message: msg})
     }
 
