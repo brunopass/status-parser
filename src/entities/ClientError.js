@@ -1,8 +1,12 @@
 'use strict'
 
-const { onError } = require("../middlewares/response")
+const { onError } = require("../network/response")
 const Schema = require("../schema")
 
+/**
+    * Client Error: contains most used 4xx responses.
+    * @param  {[Object]} res: http response object
+    */
 class ClientError {
     #res
     constructor(res){
