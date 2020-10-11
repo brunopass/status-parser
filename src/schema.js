@@ -6,14 +6,13 @@ const Schema = data => {
                 status: status,
                 message: message,
                 error: error
-
             }
     }
 
     return{
             status: status,
             message: message,
-            success: success
+            data: success
         }
 }
 
