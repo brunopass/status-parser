@@ -1,9 +1,17 @@
 'use strict'
 
+const { onError } = require("../network/response")
 const Schema = require("../schema")
 
+/**
+* Server Error: contains most 5xx responses used.
+* @param  {[Object]} res: http response object
+*/
 class ServerError{
-    
+    #res
+    constructor(res){
+        this.#res = res
+    }
     /**
     * 500 Internal Server Error: A generic error message, given when an unexpected condition was encountered and no more specific message is suitable.
     * @param  {[string]} message: message to parse into response
@@ -11,7 +19,11 @@ class ServerError{
     */
     InternalServerError(message){
         const msg = 'internal server error'
-        return Schema({status: 500, error: message || msg, message: msg})
+        const payload = Schema({status: 500, error: message || msg, message: msg})
+        if(this.#res){
+            onError(this.#res, payload)
+        }
+        return payload
     }
 
     /**
@@ -21,7 +33,11 @@ class ServerError{
     */
     NotImplemented(message){
         const msg = 'request method not recognized'
-        return Schema({status: 501, error: message || msg, message: msg})
+        const payload = Schema({status: 501, error: message || msg, message: msg})
+        if(this.#res){
+            onError(this.#res, payload)
+        }
+        return payload
     }
 
     /**
@@ -31,7 +47,11 @@ class ServerError{
     */
     BadGateway(message){
         const msg = 'invalid response'
-        return Schema({status: 502, error: message || msg, message: msg})
+        const payload = Schema({status: 502, error: message || msg, message: msg})
+        if(this.#res){
+            onError(this.#res, payload)
+        }
+        return payload
     }
 
     /**
@@ -41,7 +61,11 @@ class ServerError{
     */
     ServiceUnavailable(message){
         const msg = 'service is not available'
-        return Schema({status: 503, error: message || msg, message: msg})
+        const payload = Schema({status: 503, error: message || msg, message: msg})
+        if(this.#res){
+            onError(this.#res, payload)
+        }
+        return payload
     }
 
     /**
@@ -51,7 +75,11 @@ class ServerError{
     */
     GatewayTimeout(message){
         const msg = 'gateway timeout'
-        return Schema({status: 504, error: message || msg, message: msg})
+        const payload = Schema({status: 504, error: message || msg, message: msg})
+        if(this.#res){
+            onError(this.#res, payload)
+        }
+        return payload
     }
 
     /**
@@ -61,7 +89,11 @@ class ServerError{
     */
     HTTPVersionNotSupported(message){
         const msg = 'http protocol version not supported'
-        return Schema({status: 505, error: message || msg, message: msg})
+        const payload = Schema({status: 505, error: message || msg, message: msg})
+        if(this.#res){
+            onError(this.#res, payload)
+        }
+        return payload
     }
 
     /**
@@ -71,7 +103,11 @@ class ServerError{
     */
     VariantAlsoNegotiates(message){
         const msg = 'circular reference'
-        return Schema({status: 506, error: message || msg, message: msg})
+        const payload = Schema({status: 506, error: message || msg, message: msg})
+        if(this.#res){
+            onError(this.#res, payload)
+        }
+        return payload
     }
 
     /**
@@ -81,7 +117,11 @@ class ServerError{
     */
     InsufficientStorage(message){
         const msg = 'insufficient storage'
-        return Schema({status: 507, error: message || msg, message: msg})
+        const payload = Schema({status: 507, error: message || msg, message: msg})
+        if(this.#res){
+            onError(this.#res, payload)
+        }
+        return payload
     }
 
     /**
@@ -91,7 +131,11 @@ class ServerError{
     */
     LoopDetected(message){
         const msg = 'infinite loop detected'
-        return Schema({status: 508, error: message || msg, message: msg})
+        const payload = Schema({status: 508, error: message || msg, message: msg})
+        if(this.#res){
+            onError(this.#res, payload)
+        }
+        return payload
     }
 
     /**
@@ -101,7 +145,11 @@ class ServerError{
     */
     NotExtended(message){
         const msg = 'further extensions required'
-        return Schema({status: 510, error: message || msg, message: msg})
+        const payload = Schema({status: 510, error: message || msg, message: msg})
+        if(this.#res){
+            onError(this.#res, payload)
+        }
+        return payload
     }
 
     /**
@@ -111,7 +159,11 @@ class ServerError{
     */
     NetworkAuthenticationRequired(message){
         const msg = 'client needs to authenticate to gain network access'
-        return Schema({status: 511, error: message || msg, message: msg})
+        const payload = Schema({status: 511, error: message || msg, message: msg})
+        if(this.#res){
+            onError(this.#res, payload)
+        }
+        return payload
     }
 }
 

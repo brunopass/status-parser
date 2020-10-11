@@ -1,9 +1,17 @@
 'use strict'
 
+const { onSuccess } = require("../network/response")
 const Schema = require("../schema")
 
+/**
+* Success: contains most 2xx responses used.
+* @param  {[Object]} res: http response object
+*/
 class Success{
-
+    #res
+    constructor(res){
+        this.#res = res
+    }
     /**
     * 200 OK: Standard response for successful HTTP requests.
     * @param  {[string]} message: message to parse into response
@@ -11,7 +19,11 @@ class Success{
     */
     OK(message){
         const msg = 'successful request'
-        return Schema({status: 200, data: message || msg, message: msg})
+        const payload = Schema({status: 200, data: message || msg, message: msg})
+        if(this.#res){
+            onSuccess(this.#res, payload)
+        }
+        return payload
     }
 
     /**
@@ -21,7 +33,11 @@ class Success{
     */
     Created(message){
         const msg = 'resource created'
-        return Schema({status: 201, data: message || msg, message: msg})
+        const payload = Schema({status: 201, data: message || msg, message: msg})
+        if(this.#res){
+            onSuccess(this.#res, payload)
+        }
+        return payload
     }
 
     /**
@@ -31,7 +47,11 @@ class Success{
     */
     Accepted(message){
         const msg = 'request accepted'
-        return Schema({status: 202, data: message || msg, message: msg})
+        const payload = Schema({status: 202, data: message || msg, message: msg})
+        if(this.#res){
+            onSuccess(this.#res, payload)
+        }
+        return payload
     }
 
     /**
@@ -41,7 +61,11 @@ class Success{
     */
     NonAuthoritativeInformation(message){
         const msg = 'modified origin response'
-        return Schema({status: 203, data: message || msg, message: msg})
+        const payload = Schema({status: 203, data: message || msg, message: msg})
+        if(this.#res){
+            onSuccess(this.#res, payload)
+        }
+        return payload
     }
 
     /**
@@ -51,7 +75,11 @@ class Success{
     */
     NoContent(message){
         const msg = 'successfully request with no content returned'
-        return Schema({status: 204, data: message || msg, message: msg})
+        const payload = Schema({status: 204, data: message || msg, message: msg})
+        if(this.#res){
+            onSuccess(this.#res, payload)
+        }
+        return payload
     }
 
     /**
@@ -61,7 +89,11 @@ class Success{
     */
     ResetContent(message){
         const msg = 'reset content'
-        return Schema({status: 205, data: message || msg, message: msg})
+        const payload = Schema({status: 205, data: message || msg, message: msg})
+        if(this.#res){
+            onSuccess(this.#res, payload)
+        }
+        return payload
     }
 
     /**
@@ -71,7 +103,11 @@ class Success{
     */
     PartialContent(message){
         const msg = 'returned only part of the resources'
-        return Schema({status: 206, data: message || msg, message: msg})
+        const payload = Schema({status: 206, data: message || msg, message: msg})
+        if(this.#res){
+            onSuccess(this.#res, payload)
+        }
+        return payload
     } 
     
     /**
@@ -81,7 +117,11 @@ class Success{
     */
     MultiStatus(message){
         const msg = 'multiple status'
-        return Schema({status: 207, data: message || msg, message: msg})
+        const payload = Schema({status: 207, data: message || msg, message: msg})
+        if(this.#res){
+            onSuccess(this.#res, payload)
+        }
+        return payload
     }
 
     /**
@@ -91,7 +131,11 @@ class Success{
     */
     AlreadyReported(message){
         const msg = 'already reported'
-        return Schema({status: 208, data: message || msg, message: msg})
+        const payload = Schema({status: 208, data: message || msg, message: msg})
+        if(this.#res){
+            onSuccess(this.#res, payload)
+        }
+        return payload
     }
 
     /**
@@ -101,7 +145,11 @@ class Success{
     */
     IMUsed(message){
         const msg = 'request for the resource fulfilled'
-        return Schema({status: 226, data: message || msg, message: msg})
+        const payload = Schema({status: 226, data: message || msg, message: msg})
+        if(this.#res){
+            onSuccess(this.#res, payload)
+        }
+        return payload
     }
 }
 

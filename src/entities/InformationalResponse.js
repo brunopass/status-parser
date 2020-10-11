@@ -1,9 +1,17 @@
 'use strict'
 
+const { onSuccess } = require("../network/response")
 const Schema = require("../schema")
 
+/**
+* Information: contains most 1xx responses used.
+* @param  {[Object]} res: http response object
+*/
 class InformationalResponse{
-    
+    #res
+    constructor(res){
+        this.#res = res
+    }
     /**
     * 100 Continue: The server has received the request headers and the client should proceed to send the request body.
     * @param  {[string]} message: message to parse into response
@@ -11,7 +19,11 @@ class InformationalResponse{
     */
     Continue(message){
         const msg = 'proceed to send the request body'
-        return Schema({status: 100, data: message || msg, message: msg})
+        const payload = Schema({status: 100, data: message || msg, message: msg})
+        if(this.#res){
+            onSuccess(this.#res, payload)
+        }
+        return payload
     }
 
     /**
@@ -21,7 +33,11 @@ class InformationalResponse{
     */
     SwitchingProtocols(message){
         const msg = 'protocols switched'
-        return Schema({status: 101, data: message || msg, message: msg})
+        const payload = Schema({status: 101, data: message || msg, message: msg})
+        if(this.#res){
+            onSuccess(this.#res, payload)
+        }
+        return payload
     }
 
     /**
@@ -31,7 +47,11 @@ class InformationalResponse{
     */
     Processing(message){
         const msg = 'processing request'
-        return Schema({status: 102, data: message || msg, message: msg})
+        const payload = Schema({status: 102, data: message || msg, message: msg})
+        if(this.#res){
+            onSuccess(this.#res, payload)
+        }
+        return payload
     }
 
     /**
@@ -41,7 +61,11 @@ class InformationalResponse{
     */
     EarlyHints(message){
         const msg = 'response headers'
-        return Schema({status: 103, data: message || msg, message: msg})
+        const payload = Schema({status: 103, data: message || msg, message: msg})
+        if(this.#res){
+            onSuccess(this.#res, payload)
+        }
+        return payload
     }
 }
 
