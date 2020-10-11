@@ -42,11 +42,12 @@ class StatusParser{
     }
 
     //5xx
-    /** 
-    *Contains 5xx server error status responses
+    /**
+    * Server Error: contains most 5xx responses used.
+    * @param  {[Object]} res: http response object
     */
-    serverError(){
-        return new ServerError()
+    serverError(res){
+        return new ServerError(res)
     }
     
 }
