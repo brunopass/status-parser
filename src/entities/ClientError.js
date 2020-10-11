@@ -149,7 +149,7 @@ class ClientError {
     * @param  {[string]} message: message to parse into response
     * @return {[JSON]} JSON{ status: integer, error: string, message: string}
     */
-    URIToLong(message){
+    URITooLong(message){
         const msg = 'URI is too long'
         return Schema({status: 414, error: message || msg, message: msg})
     
@@ -251,7 +251,7 @@ class ClientError {
     * @return {[JSON]} JSON{ status: integer, error: string, message: string}
     */
     UpgradeRequired(message){
-        const msg = 'The client should switch to a different protocol'
+        const msg = 'switch protocol'
         return Schema({status: 426, error: message || msg, message: msg})
     }
 

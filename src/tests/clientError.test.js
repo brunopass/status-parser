@@ -104,3 +104,131 @@ test('412 Precondition Failed status test 1/2', ()=> {
 test('412 Precondition Failed status test 2/2', ()=> {
     expect(JSON.stringify(Client.PreconditionFailed('ok'))).toBe(`{"status":412,"message":"precondition failed","error":"ok"}`)
 })
+
+test('413 Payload Too Large Failed status test 1/2', ()=> {
+    expect(JSON.stringify(Client.PayloadTooLarge())).toBe(`{"status":413,"message":"payload is too large","error":"payload is too large"}`)
+})
+
+test('413 Payload Too Large Failed status test 2/2', ()=> {
+    expect(JSON.stringify(Client.PayloadTooLarge('ok'))).toBe(`{"status":413,"message":"payload is too large","error":"ok"}`)
+})
+
+test('414 URI Too Long status test 1/2', ()=> {
+    expect(JSON.stringify(Client.URITooLong())).toBe(`{"status":414,"message":"URI is too long","error":"URI is too long"}`)
+})
+
+test('414 URI Too Long status test 2/2', ()=> {
+    expect(JSON.stringify(Client.URITooLong('ok'))).toBe(`{"status":414,"message":"URI is too long","error":"ok"}`)
+})
+
+test('415 Unsupported Media Type status test 1/2', ()=> {
+    expect(JSON.stringify(Client.UnsuportedMediaType())).toBe(`{"status":415,"message":"media type not supported","error":"media type not supported"}`)
+})
+
+test('415 Unsupported Media Type status test 2/2', ()=> {
+    expect(JSON.stringify(Client.UnsuportedMediaType('ok'))).toBe(`{"status":415,"message":"media type not supported","error":"ok"}`)
+})
+
+test('416 Range Not Satisfiable status test 1/2', ()=> {
+    expect(JSON.stringify(Client.RangeNotSatisfiable())).toBe(`{"status":416,"message":"range not satisfiable","error":"range not satisfiable"}`)
+})
+
+test('416 Range Not Satisfiable status test 2/2', ()=> {
+    expect(JSON.stringify(Client.RangeNotSatisfiable('ok'))).toBe(`{"status":416,"message":"range not satisfiable","error":"ok"}`)
+})
+
+test('417 Expectation Failed status test 1/2', ()=> {
+    expect(JSON.stringify(Client.ExpectationFailed())).toBe(`{"status":417,"message":"expectation failed","error":"expectation failed"}`)
+})
+
+test('417 Expectation Failed status test 2/2', ()=> {
+    expect(JSON.stringify(Client.ExpectationFailed('ok'))).toBe(`{"status":417,"message":"expectation failed","error":"ok"}`)
+})
+
+test('418 Teapot status test 1/2', ()=> {
+    expect(JSON.stringify(Client.Teapot())).toBe(`{"status":418,"message":"teapot","error":"teapot"}`)
+})
+
+test('418 Teapot status test 2/2', ()=> {
+    expect(JSON.stringify(Client.Teapot('ok'))).toBe(`{"status":418,"message":"teapot","error":"ok"}`)
+})
+
+test('421 Misdirected Request status test 1/2', ()=> {
+    expect(JSON.stringify(Client.MisdirectedRequest())).toBe(`{"status":421,"message":"request was directed at a server that is not able to produce a response","error":"request was directed at a server that is not able to produce a response"}`)
+})
+
+test('421 Misdirected Request status test 2/2', ()=> {
+    expect(JSON.stringify(Client.MisdirectedRequest('ok'))).toBe(`{"status":421,"message":"request was directed at a server that is not able to produce a response","error":"ok"}`)
+})
+
+test('422 Unprocessable Entity status test 1/2', ()=> {
+    expect(JSON.stringify(Client.UnprocessableEntity())).toBe(`{"status":422,"message":"request was well-formed but was unable to be followed due to semantic errors","error":"request was well-formed but was unable to be followed due to semantic errors"}`)
+})
+
+test('422 Unprocessable Entity status test 2/2', ()=> {
+    expect(JSON.stringify(Client.UnprocessableEntity('ok'))).toBe(`{"status":422,"message":"request was well-formed but was unable to be followed due to semantic errors","error":"ok"}`)
+})
+
+test('423 Locked test 1/2', ()=> {
+    expect(JSON.stringify(Client.Locked())).toBe(`{"status":423,"message":"resource that is being accessed is locked","error":"resource that is being accessed is locked"}`)
+})
+
+test('423 Locked test 2/2', ()=> {
+    expect(JSON.stringify(Client.Locked('ok'))).toBe(`{"status":423,"message":"resource that is being accessed is locked","error":"ok"}`)
+})
+
+test('424 Failed Dependency test 1/2', ()=> {
+    expect(JSON.stringify(Client.FailedDependency())).toBe(`{"status":424,"message":"request failed because it depended on another request that failed","error":"request failed because it depended on another request that failed"}`)
+})
+
+test('424 Failed Dependency test 2/2', ()=> {
+    expect(JSON.stringify(Client.FailedDependency('ok'))).toBe(`{"status":424,"message":"request failed because it depended on another request that failed","error":"ok"}`)
+})
+
+test('425 Too Early Dependency test 1/2', ()=> {
+    expect(JSON.stringify(Client.TooEarly())).toBe(`{"status":425,"message":"request might be replayed","error":"request might be replayed"}`)
+})
+
+test('425 Too Early Dependency test 2/2', ()=> {
+    expect(JSON.stringify(Client.TooEarly('ok'))).toBe(`{"status":425,"message":"request might be replayed","error":"ok"}`)
+})
+
+test('426 Upgrade Required test 1/2', ()=> {
+    expect(JSON.stringify(Client.UpgradeRequired())).toBe(`{"status":426,"message":"switch protocol","error":"switch protocol"}`)
+})
+
+test('426 Upgrade Required test 2/2', ()=> {
+    expect(JSON.stringify(Client.UpgradeRequired('ok'))).toBe(`{"status":426,"message":"switch protocol","error":"ok"}`)
+})
+
+test('428 Precondition Required test 1/2', ()=> {
+    expect(JSON.stringify(Client.PreconditionRequired())).toBe(`{"status":428,"message":"precondition required","error":"precondition required"}`)
+})
+
+test('428 Precondition Required test 2/2', ()=> {
+    expect(JSON.stringify(Client.PreconditionRequired('ok'))).toBe(`{"status":428,"message":"precondition required","error":"ok"}`)
+})
+
+test('429 Too Many Requests test 1/2', ()=> {
+    expect(JSON.stringify(Client.TooManyRequests())).toBe(`{"status":429,"message":"too many requests","error":"too many requests"}`)
+})
+
+test('429 Too Many Requests test 2/2', ()=> {
+    expect(JSON.stringify(Client.TooManyRequests('ok'))).toBe(`{"status":429,"message":"too many requests","error":"ok"}`)
+})
+
+test('431 Request Header Fields Too Large test 1/2', ()=> {
+    expect(JSON.stringify(Client.RequestHeaderFieldsTooLarge())).toBe(`{"status":431,"message":"request header fields are too large","error":"request header fields are too large"}`)
+})
+
+test('431 Request Header Fields Too Large test 2/2', ()=> {
+    expect(JSON.stringify(Client.RequestHeaderFieldsTooLarge('ok'))).toBe(`{"status":431,"message":"request header fields are too large","error":"ok"}`)
+})
+
+test('451 Unavailable For Legal Reasons test 1/2', ()=> {
+    expect(JSON.stringify(Client.UnavailableForLegalReasons())).toBe(`{"status":451,"message":"unavailable for leagl reasons","error":"unavailable for leagl reasons"}`)
+})
+
+test('451 Unavailable For Legal Reasons test 2/2', ()=> {
+    expect(JSON.stringify(Client.UnavailableForLegalReasons('ok'))).toBe(`{"status":451,"message":"unavailable for leagl reasons","error":"ok"}`)
+})
