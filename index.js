@@ -6,35 +6,39 @@ const Success = require("./src/entities/Success")
 
 class StatusParser{
     //1xx
-    /** 
-    *Contains 1xx informational status responses
+    /**
+    * Information: contains most 1xx responses used.
+    * @param  {[Object]} res: http response object
     */
-    information(){
-        return new InformationalResponse()
+    information(res){
+        return new InformationalResponse(res)
     }
 
     //2xx
-    /** 
-    *Contains 2xx success status responses
+    /**
+    * Success: contains most 2xx responses used.
+    * @param  {[Object]} res: http response object
     */
-    success(){
-        return new Success()
+    success(res){
+        return new Success(res)
     }
 
     //3xx
-    /** 
-    *Contains 3xx redirection status responses
+    /**
+    * Redirection: contains most 3xx responses used.
+    * @param  {[Object]} res: http response object
     */
-    redirection(){
-        return new Redirection()
+    redirection(res){
+        return new Redirection(res)
     }
 
     //4xx
-    /** 
-    *Contains 4xx error status responses
+    /**
+    * Client Error: contains most 4xx responses used.
+    * @param  {[Object]} res: http response object
     */
-    clientError(){
-        return new ClientError()
+    clientError(res){
+        return new ClientError(res)
     }
 
     //5xx
