@@ -8,7 +8,7 @@ class InformationalResponse{
     * @param  {[string]} message: message to parse into response
     * @return {[JSON]} JSON{ status: integer, success: string, message: string}
     */
-    Continue = message => {
+    Continue(message){
         const msg = 'proceed to send the request body'
         return Schema({status: 100, success: message || msg, message: msg})
     }
@@ -18,7 +18,7 @@ class InformationalResponse{
     * @param  {[string]} message: message to parse into response
     * @return {[JSON]} JSON{ status: integer, success: string, message: string}
     */
-    SwitchingProtocols = message => {
+    SwitchingProtocols(message){
         const msg = 'protocols switched'
         return Schema({status: 101, success: message || msg, message: msg})
     }
@@ -28,7 +28,7 @@ class InformationalResponse{
     * @param  {[string]} message: message to parse into response
     * @return {[JSON]} JSON{ status: integer, success: string, message: string}
     */
-    Processing = message => {
+    Processing(message){
         const msg = 'processing request'
         return Schema({status: 102, success: message || msg, message: msg})
     }
@@ -38,7 +38,7 @@ class InformationalResponse{
     * @param  {[string]} message: message to parse into response
     * @return {[JSON]} JSON{ status: integer, success: string, message: string}
     */
-    EarlyHints = message => {
+    EarlyHints(message){
         const msg = 'response headers'
         return Schema({status: 103, success: message || msg, message: msg})
     }

@@ -10,27 +10,47 @@ class Status{
     }
 
     //1xx
-    informationalResponse = () => {
+    /** 
+    *Contains 1xx informational status responses
+    */
+    informationalResponse(){
         return new InformationalResponse()
     }
 
     //2xx
-    success = () => {
+    /** 
+    *Contains 2xx success status responses
+    */
+    success(){
         return new Success()
     }
 
     //3xx
-    redirection = () => {
+    /** 
+    *Contains 3xx redirection status responses
+    */
+    redirection(){
         return new Redirection()
     }
 
     //4xx
-    clientError = () => {
+    /** 
+    *Contains 4xx error status responses
+    */
+    clientError(){
         return new ClientError()
+    }
+
+    //5xx
+    /** 
+    *Contains 5xx server error status responses
+    */
+    serverError(){
+        return new ServerError()
     }
     
 }
 
-module.exports = Status
+const status = new Status
 
-console.log( JSON.stringify(new Status().success().Accepted()))
+module.exports = status

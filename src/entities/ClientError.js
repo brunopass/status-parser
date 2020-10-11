@@ -2,128 +2,124 @@
 
 
 class ClientError {
-    clientError = () => {
+
+    BadRequest(message){
+
+    }
+
+    Unauthorized(message){
+
+    }
+
+    PaymentRequired(message){
+
+    }
+
+    Forbidden(message){
+
+    }
+
+    NotFound(message){
+
+    }
+
+    MethodNotAllowed(message){
+
+    }
+
+    NotAcceptable(message){
+
+    }
+
+    ProxyAuthenticationRequired(message){
+
+    }
+
+    RequestTimeout(message){
+
+    }
+
+    Conflict(message){
+
+    }
+
+    Gone(message){
+
+    }
+
+    LengthRequired(message){
+
+    }
+
+    PreconditionFailed(message){
+
+    }
+
+    PayloadTooLarge(message){
+
+    }
+
+    URIToLarge(message){
         
     }
 
-
-    BadRequest = message => {
-
-    }
-
-    Unauthorized = message => {
+    URIToLong(message){
 
     }
 
-    PaymentRequired = message => {
+    UnsuportedMediaType(message){
 
     }
 
-    Forbidden = message => {
+    RangeNotSatisfiable(message){
 
     }
 
-    NotFound = message => {
+    ExpectationFailed(message){
 
     }
 
-    MethodNotAllowed = message => {
-
-    }
-
-    NotAcceptable = message => {
-
-    }
-
-    ProxyAuthenticationRequired = message => {
-
-    }
-
-    RequestTimeout = message => {
-
-    }
-
-    Conflict = message => {
-
-    }
-
-    Gone = message => {
-
-    }
-
-    LengthRequired = message => {
-
-    }
-
-    PreconditionFailed = message => {
-
-    }
-
-    PayloadTooLarge = message => {
-
-    }
-
-    URIToLarge = message => {
+    Teapot(message){
         
     }
 
-    URIToLong = message => {
+    MisdirecetdRequest(message){
 
     }
 
-    UnsuportedMediaType = message => {
+    UnprocessableEntity(message){
 
     }
 
-    RangeNotSatisfiable = message => {
+    Locked(message){
 
     }
 
-    ExpectationFailed = message => {
+    FailedDependency(message){
 
     }
 
-    Teapot = message => {
-        
-    }
-
-    MisdirecetdRequest = message => {
+    TooEarly(message){
 
     }
 
-    UnprocessableEntity = message => {
+    UpgradeRequired(message){
 
     }
 
-    Locked = message => {
+    PreconditionRequired(message){
 
     }
 
-    FailedDependency = message => {
+    TooManyRequests(message){
 
     }
 
-    TooEarly = message => {
+    RequestHeaderFieldsTooLarge(message){
 
     }
 
-    UpgradeRequired = message => {
-
-    }
-
-    PreconditionRequired = message => {
-
-    }
-
-    TooManyRequests = message => {
-
-    }
-
-    RequestHeaderFieldsTooLarge = message => {
-
-    }
-
-    UnavailableForLegalReasons = message => {
+    UnavailableForLegalReasons(message){
         
     }
 }
