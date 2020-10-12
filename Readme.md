@@ -13,7 +13,7 @@ _copy and paste this code into the terminal_
 ### Examples
 
 _send response on success_
-```
+```javascript
 const router = require('express').Router()
 const status = require('status-parser')
 
@@ -25,7 +25,7 @@ router.get('/', (req,res)=>{
 ```
 
 _add personalizated data response_
-```
+```javascript
 const router = require('express').Router()
 const status = require('status-parser')
 
@@ -41,7 +41,7 @@ router.get('/', (req,res)=>{
 ```
 
 _add personalizated headers_
-```
+```javascript
 const router = require('express').Router()
 const status = require('status-parser')
 
@@ -63,7 +63,7 @@ router.get('/', (req,res)=>{
 ```
 
 _add personalizated cookie_
-```
+```javascript
 const router = require('express').Router()
 const status = require('status-parser')
 
