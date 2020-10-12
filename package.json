@@ -12,5 +12,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "bin": {
+    "status-parser": "./bin/global.js"
+  },
+  "preferGlobal": true
 }

@@ -52,6 +52,6 @@ class StatusParser{
     
 }
 
-const status = new StatusParser()
+const statusParser = new StatusParser()
 
-module.exports = status
+module.exports = statusParser
