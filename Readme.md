@@ -7,13 +7,13 @@ Node.js HTTP friendly responses handler
 ### Instalation
 _copy and paste this code into the terminal_
 ```
-npm install status-parser
+...
 ```
 
 ### Examples
 
 ```
-Da un ejemplo
+...
 ```
 
 ## Author ✒️
