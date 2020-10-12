@@ -1,5 +1,5 @@
 {
-  "name": "express-status-parser",
+  "name": "@bpass/status-parser",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
