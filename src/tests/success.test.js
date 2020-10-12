@@ -33,12 +33,8 @@ test('203 Non Authoritative Information test 2/2', ()=>{
     expect(JSON.stringify(Success.NonAuthoritativeInformation('ok'))).toBe(`{"status":203,"message":"modified origin response","data":"ok"}`)
 })
 
-test('204 No Content status test 1/2', ()=>{
-    expect(JSON.stringify(Success.NoContent())).toBe(`{"status":204,"message":"successfully request with no content returned","data":"successfully request with no content returned"}`)
-})
-
-test('204 No Content status test 2/2', ()=>{
-    expect(JSON.stringify(Success.NoContent('ok'))).toBe(`{"status":204,"message":"successfully request with no content returned","data":"ok"}`)
+test('204 No Content status test 1/1', ()=>{
+    expect(JSON.stringify(Success.NoContent())).toBe(`{"status":204,"message":"successfully request with no content returned"}`)
 })
 
 test('205 Reset Content status test 1/2', ()=>{

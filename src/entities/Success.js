@@ -73,9 +73,9 @@ class Success{
     * @param  {[string]} message: message to parse into response
     * @return {[JSON]} JSON{ status: integer, data: string, message: string}
     */
-    NoContent(message){
+    NoContent(){
         const msg = 'successfully request with no content returned'
-        const payload = Schema({status: 204, data: message || msg, message: msg})
+        const payload = Schema({status: 204, message: msg})
         if(this.#res){
             onSuccess(this.#res, payload)
         }
