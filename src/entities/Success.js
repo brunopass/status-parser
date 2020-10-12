@@ -3,6 +3,11 @@
 const { onSuccess } = require("../network/response")
 const Schema = require("../schema")
 
+/**
+    * Success: contains most 2xx responses used.
+    * @param  {[Object]} res: http response object
+    * @param  {[JSON]} options: {header: {"name":"value"}, cookie: {name: "value", val: "value", options: {"name":"value"}}}
+    */
 class Success{
     #res
     #options
