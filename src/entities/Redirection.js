@@ -9,8 +9,10 @@ const Schema = require("../schema")
 */
 class Redirection{
     #res
-    constructor(res){
+    #options
+    constructor(res, options = {}){
         this.#res = res
+        this.#options = options
     }
     /**
     * 300 Multiple Choices: There are multiple options for the resource from which the client may choose.
@@ -21,7 +23,7 @@ class Redirection{
         const msg = 'multiple options'
         const payload = Schema({status: 300, data: message || msg, message: msg})
         if(this.#res){
-            onSuccess(this.#res, payload)
+            onSuccess(this.#res, this.#options, payload)
         }
         return payload
     }
@@ -35,7 +37,7 @@ class Redirection{
         const msg = 'moved permanently'
         const payload = Schema({status: 301, data: message || msg, message: msg})
         if(this.#res){
-            onSuccess(this.#res, payload)
+            onSuccess(this.#res, this.#options, payload)
         }
         return payload
     }
@@ -49,7 +51,7 @@ class Redirection{
         const msg = 'resource found after moved permanently'
         const payload = Schema({status: 302, data: message || msg, message: msg})
         if(this.#res){
-            onSuccess(this.#res, payload)
+            onSuccess(this.#res, this.#options, payload)
         }
         return payload
     }
@@ -63,7 +65,7 @@ class Redirection{
         const msg = 'request can be found under another URI'
         const payload = Schema({status: 303, data: message || msg, message: msg})
         if(this.#res){
-            onSuccess(this.#res, payload)
+            onSuccess(this.#res, this.#options, payload)
         }
         return payload
     }
@@ -77,7 +79,7 @@ class Redirection{
         const msg = 'resource has not been modified'
         const payload = Schema({status: 304, data: message || msg, message: msg})
         if(this.#res){
-            onSuccess(this.#res, payload)
+            onSuccess(this.#res, this.#options, payload)
         }
         return payload
     }
@@ -91,7 +93,7 @@ class Redirection{
         const msg = 'requested resource is available only through a proxy'
         const payload = Schema({status: 305, data: message || msg, message: msg})
         if(this.#res){
-            onSuccess(this.#res, payload)
+            onSuccess(this.#res, this.#options, payload)
         }
         return payload
     }
@@ -105,7 +107,7 @@ class Redirection{
         const msg = 'the request should be repeated with another URI'
         const payload = Schema({status: 307, data: message || msg, message: msg})
         if(this.#res){
-            onSuccess(this.#res, payload)
+            onSuccess(this.#res, this.#options, payload)
         }
         return payload
     }
@@ -119,7 +121,7 @@ class Redirection{
         const msg = 'the request and all future requests should be repeated using another URI'
         const payload = Schema({status: 308, data: message || msg, message: msg})
         if(this.#res){
-            onSuccess(this.#res, payload)
+            onSuccess(this.#res, this.#options, payload)
         }
         return payload
     }

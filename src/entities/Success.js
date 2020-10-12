@@ -9,8 +9,10 @@ const Schema = require("../schema")
 */
 class Success{
     #res
-    constructor(res){
+    #options
+    constructor(res, options = {}){
         this.#res = res
+        this.#options = options
     }
     /**
     * 200 OK: Standard response for successful HTTP requests.
@@ -21,7 +23,7 @@ class Success{
         const msg = 'successful request'
         const payload = Schema({status: 200, data: message || msg, message: msg})
         if(this.#res){
-            onSuccess(this.#res, payload)
+            onSuccess(this.#res, this.#options, payload)
         }
         return payload
     }
@@ -35,7 +37,7 @@ class Success{
         const msg = 'resource created'
         const payload = Schema({status: 201, data: message || msg, message: msg})
         if(this.#res){
-            onSuccess(this.#res, payload)
+            onSuccess(this.#res, this.#options, payload)
         }
         return payload
     }
@@ -49,7 +51,7 @@ class Success{
         const msg = 'request accepted'
         const payload = Schema({status: 202, data: message || msg, message: msg})
         if(this.#res){
-            onSuccess(this.#res, payload)
+            onSuccess(this.#res, this.#options, payload)
         }
         return payload
     }
@@ -63,7 +65,7 @@ class Success{
         const msg = 'modified origin response'
         const payload = Schema({status: 203, data: message || msg, message: msg})
         if(this.#res){
-            onSuccess(this.#res, payload)
+            onSuccess(this.#res, this.#options, payload)
         }
         return payload
     }
@@ -77,7 +79,7 @@ class Success{
         const msg = 'successfully request with no content returned'
         const payload = Schema({status: 204, message: msg})
         if(this.#res){
-            onSuccess(this.#res, payload)
+            onSuccess(this.#res,{}, payload)
         }
         return payload
     }
@@ -91,7 +93,7 @@ class Success{
         const msg = 'reset content'
         const payload = Schema({status: 205, data: message || msg, message: msg})
         if(this.#res){
-            onSuccess(this.#res, payload)
+            onSuccess(this.#res, this.#options, payload)
         }
         return payload
     }
@@ -105,7 +107,7 @@ class Success{
         const msg = 'returned only part of the resources'
         const payload = Schema({status: 206, data: message || msg, message: msg})
         if(this.#res){
-            onSuccess(this.#res, payload)
+            onSuccess(this.#res, this.#options, payload)
         }
         return payload
     } 
@@ -119,7 +121,7 @@ class Success{
         const msg = 'multiple status'
         const payload = Schema({status: 207, data: message || msg, message: msg})
         if(this.#res){
-            onSuccess(this.#res, payload)
+            onSuccess(this.#res, this.#options, payload)
         }
         return payload
     }
@@ -133,7 +135,7 @@ class Success{
         const msg = 'already reported'
         const payload = Schema({status: 208, data: message || msg, message: msg})
         if(this.#res){
-            onSuccess(this.#res, payload)
+            onSuccess(this.#res, this.#options, payload)
         }
         return payload
     }
@@ -147,7 +149,7 @@ class Success{
         const msg = 'request for the resource fulfilled'
         const payload = Schema({status: 226, data: message || msg, message: msg})
         if(this.#res){
-            onSuccess(this.#res, payload)
+            onSuccess(this.#res, this.#options, payload)
         }
         return payload
     }

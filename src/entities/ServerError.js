@@ -9,8 +9,10 @@ const Schema = require("../schema")
 */
 class ServerError{
     #res
-    constructor(res){
+    #options
+    constructor(res, options = {}){
         this.#res = res
+        this.#options = options
     }
     /**
     * 500 Internal Server Error: A generic error message, given when an unexpected condition was encountered and no more specific message is suitable.
@@ -21,7 +23,7 @@ class ServerError{
         const msg = 'internal server error'
         const payload = Schema({status: 500, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -35,7 +37,7 @@ class ServerError{
         const msg = 'request method not recognized'
         const payload = Schema({status: 501, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -49,7 +51,7 @@ class ServerError{
         const msg = 'invalid response'
         const payload = Schema({status: 502, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -63,7 +65,7 @@ class ServerError{
         const msg = 'service is not available'
         const payload = Schema({status: 503, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -77,7 +79,7 @@ class ServerError{
         const msg = 'gateway timeout'
         const payload = Schema({status: 504, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -91,7 +93,7 @@ class ServerError{
         const msg = 'http protocol version not supported'
         const payload = Schema({status: 505, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -105,7 +107,7 @@ class ServerError{
         const msg = 'circular reference'
         const payload = Schema({status: 506, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -119,7 +121,7 @@ class ServerError{
         const msg = 'insufficient storage'
         const payload = Schema({status: 507, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -133,7 +135,7 @@ class ServerError{
         const msg = 'infinite loop detected'
         const payload = Schema({status: 508, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -147,7 +149,7 @@ class ServerError{
         const msg = 'further extensions required'
         const payload = Schema({status: 510, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -161,7 +163,7 @@ class ServerError{
         const msg = 'client needs to authenticate to gain network access'
         const payload = Schema({status: 511, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }

@@ -9,8 +9,10 @@ const Schema = require("../schema")
 */
 class ClientError {
     #res
-    constructor(res){
+    #options
+    constructor(res, options = {}){
         this.#res = res
+        this.#options = options
     }
     /**
     * 400 Bad Request: The server cannot or will not process the request due to an apparent client error.
@@ -21,7 +23,7 @@ class ClientError {
         const msg = 'bad request'
         const payload = Schema({status: 400, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -35,7 +37,7 @@ class ClientError {
         const msg = 'unauthorized'
         const payload = Schema({status: 401, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -49,7 +51,7 @@ class ClientError {
         const msg = 'payment required'
         const payload = Schema({status: 402, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -63,7 +65,7 @@ class ClientError {
         const msg = 'request forbidden'
         const payload = Schema({status: 403, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -77,7 +79,7 @@ class ClientError {
         const msg = 'not found'
         const payload = Schema({status: 404, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -91,7 +93,7 @@ class ClientError {
         const msg = 'method not allowed'
         const payload = Schema({status: 405, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -105,7 +107,7 @@ class ClientError {
         const msg = 'request not acceptable'
         const payload = Schema({status: 406, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -119,7 +121,7 @@ class ClientError {
         const msg = 'proxy authentication required'
         const payload = Schema({status: 407, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -133,7 +135,7 @@ class ClientError {
         const msg = 'request timeout'
         const payload = Schema({status: 408, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -147,7 +149,7 @@ class ClientError {
         const msg = 'request could not be processed because of conflict in the current state of the resource'
         const payload = Schema({status: 409, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -161,7 +163,7 @@ class ClientError {
         const msg = 'resource requested is no longer available'
         const payload = Schema({status: 410, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -175,7 +177,7 @@ class ClientError {
         const msg = 'request did not specify the length of its content'
         const payload = Schema({status: 411, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -189,7 +191,7 @@ class ClientError {
         const msg = 'precondition failed'
         const payload = Schema({status: 412, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -203,7 +205,7 @@ class ClientError {
         const msg = 'payload is too large'
         const payload = Schema({status: 413, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -217,7 +219,7 @@ class ClientError {
         const msg = 'URI is too long'
         const payload = Schema({status: 414, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     
@@ -232,7 +234,7 @@ class ClientError {
         const msg = 'media type not supported'
         const payload = Schema({status: 415, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -246,7 +248,7 @@ class ClientError {
         const msg = 'range not satisfiable'
         const payload = Schema({status: 416, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -260,7 +262,7 @@ class ClientError {
         const msg = 'expectation failed'
         const payload = Schema({status: 417, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -274,7 +276,7 @@ class ClientError {
         const msg = 'teapot'
         const payload = Schema({status: 418, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -288,7 +290,7 @@ class ClientError {
         const msg = 'request was directed at a server that is not able to produce a response'
         const payload = Schema({status: 421, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -302,7 +304,7 @@ class ClientError {
         const msg = 'request was well-formed but was unable to be followed due to semantic errors'
         const payload = Schema({status: 422, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -316,7 +318,7 @@ class ClientError {
         const msg = 'resource that is being accessed is locked'
         const payload = Schema({status: 423, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -330,7 +332,7 @@ class ClientError {
         const msg = 'request failed because it depended on another request that failed'
         const payload = Schema({status: 424, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -344,7 +346,7 @@ class ClientError {
         const msg = 'request might be replayed'
         const payload = Schema({status: 425, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -358,7 +360,7 @@ class ClientError {
         const msg = 'switch protocol'
         const payload = Schema({status: 426, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -372,7 +374,7 @@ class ClientError {
         const msg = 'precondition required'
         const payload = Schema({status: 428, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -386,7 +388,7 @@ class ClientError {
         const msg = 'too many requests'
         const payload = Schema({status: 429, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -400,7 +402,7 @@ class ClientError {
         const msg = 'request header fields are too large'
         const payload = Schema({status: 431, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }
@@ -414,7 +416,7 @@ class ClientError {
         const msg = 'unavailable for leagl reasons'
         const payload = Schema({status: 451, error: message || msg, message: msg})
         if(this.#res){
-            onError(this.#res, payload)
+            onError(this.#res,this.#options, payload)
         }
         return payload
     }

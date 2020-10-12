@@ -9,8 +9,10 @@ const Schema = require("../schema")
 */
 class InformationalResponse{
     #res
-    constructor(res){
+    #options
+    constructor(res, options = {}){
         this.#res = res
+        this.#options = options
     }
     /**
     * 100 Continue: The server has received the request headers and the client should proceed to send the request body.
@@ -21,7 +23,7 @@ class InformationalResponse{
         const msg = 'proceed to send the request body'
         const payload = Schema({status: 100, data: message || msg, message: msg})
         if(this.#res){
-            onSuccess(this.#res, payload)
+            onSuccess(this.#res, this.#options, payload)
         }
         return payload
     }
@@ -35,7 +37,7 @@ class InformationalResponse{
         const msg = 'protocols switched'
         const payload = Schema({status: 101, data: message || msg, message: msg})
         if(this.#res){
-            onSuccess(this.#res, payload)
+            onSuccess(this.#res, this.#options, payload)
         }
         return payload
     }
@@ -49,7 +51,7 @@ class InformationalResponse{
         const msg = 'processing request'
         const payload = Schema({status: 102, data: message || msg, message: msg})
         if(this.#res){
-            onSuccess(this.#res, payload)
+            onSuccess(this.#res, this.#options, payload)
         }
         return payload
     }
@@ -63,7 +65,7 @@ class InformationalResponse{
         const msg = 'response headers'
         const payload = Schema({status: 103, data: message || msg, message: msg})
         if(this.#res){
-            onSuccess(this.#res, payload)
+            onSuccess(this.#res, this.#options, payload)
         }
         return payload
     }

@@ -8,7 +8,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"No test specified\""
+    "test": "jest"
   },
   "keywords": [
     "status",

@@ -9,49 +9,54 @@ class StatusParser{
     /**
     * Information: contains most 1xx responses used.
     * @param  {[Object]} res: http response object
+    * @param  {[JSON]} options: {header: {"name":"value"}, cookie: {name: "value", val: "value", options: {"name":"value"}}}
     */
-    information(res){
-        return new InformationalResponse(res)
+    information(res,options){
+        return new InformationalResponse(res,options)
     }
 
     //2xx
     /**
     * Success: contains most 2xx responses used.
     * @param  {[Object]} res: http response object
+    * @param  {[JSON]} options: {header: {"name":"value"}, cookie: {name: "value", val: "value", options: {"name":"value"}}}
     */
-    success(res){
-        return new Success(res)
+    success(res,options){
+        return new Success(res,options)
     }
 
     //3xx
     /**
     * Redirection: contains most 3xx responses used.
     * @param  {[Object]} res: http response object
+    * @param  {[JSON]} options: {header: {"name":"value"}, cookie: {name: "value", val: "value", options: {"name":"value"}}}
     */
-    redirection(res){
-        return new Redirection(res)
+    redirection(res,options){
+        return new Redirection(res,options)
     }
 
     //4xx
     /**
     * Client Error: contains most 4xx responses used.
     * @param  {[Object]} res: http response object
+    * @param  {[JSON]} options: {header: {"name":"value"}, cookie: {name: "value", val: "value", options: {"name":"value"}}}
     */
-    clientError(res){
-        return new ClientError(res)
+    clientError(res,options){
+        return new ClientError(res,options)
     }
 
     //5xx
     /**
     * Server Error: contains most 5xx responses used.
     * @param  {[Object]} res: http response object
+    * @param  {[JSON]} options: {header: {"name":"value"}, cookie: {name: "value", val: "value", options: {"name":"value"}}}
     */
-    serverError(res){
-        return new ServerError(res)
+    serverError(res,options){
+        return new ServerError(res,options)
     }
     
 }
 
 const statusParser = new StatusParser()
 
-module.exports = statusParser
+module.exports = statusParser;
