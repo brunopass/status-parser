@@ -105,7 +105,6 @@ router.get('/', (req,res)=>{
 
 _all response status from 1xx to 5xx_
 ```javascript
-const router = require('express').Router()
 const status = require('status-parser')
 
 const methods = {
