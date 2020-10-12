@@ -15,15 +15,19 @@ const onSuccess = (res,option,payload) => {
 }
 
 const onError = (res,option,payload) => {
-    const { status, message, error} = payload
-    const {header, cookie} = option
+    try{
+        const { status, message, error} = payload
+        const {header, cookie} = option
+        
+        if(cookie){
+            const {name,val,options} = cookie
+            res.status(status).header(header).cookie(name,val,options).send({message, error})
+        }
     
-    if(cookie){
-        const {name,val,options} = cookie
-        res.status(status).header(header).cookie(name,val,options).send({message, error})
+        res.status(status).header(header).send({message, error})
+    }catch(error){
+        console.error(error)
     }
-
-    res.status(status).header(header).send({message, error})
 }
 
 module.exports = {
