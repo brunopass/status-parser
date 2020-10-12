@@ -1,5 +1,5 @@
 {
-  "name": "status-handler",
+  "name": "express-status-parser",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,13 +8,15 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "jest"
+    "test": "echo \"No test specified\""
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "bin": {
-    "status-parser": "./bin/global.js"
-  },
-  "preferGlobal": true
+  "keywords": [
+    "status",
+    "express",
+    "parse",
+    "parser",
+    "javascript"
+  ],
+  "author": "bruno passarelli",
+  "license": "MIT"
 }
