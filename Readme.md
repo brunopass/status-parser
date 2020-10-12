@@ -12,19 +12,31 @@ _copy and paste this code into the terminal_
 
 ### Examples
 
-_send response on success_
+_return response 100 on success_
 ```javascript
 const router = require('express').Router()
 const status = require('status-parser')
 
 router.get('/', (req,res)=>{
 
-    status.success(res).OK()
+    const response = status.success().OK()
 
 })
 ```
 
-_add personalizated data response_
+_send response 201 on success_
+```javascript
+const router = require('express').Router()
+const status = require('status-parser')
+
+router.get('/', (req,res)=>{
+
+    status.success(res).Created()
+
+})
+```
+
+_add personalizated data to 202 response_
 ```javascript
 const router = require('express').Router()
 const status = require('status-parser')
@@ -35,12 +47,12 @@ router.get('/', (req,res)=>{
         "friends": {}
     }
 
-    status.success(res).OK(data)
+    status.success(res).Accepted(data)
 
 })
 ```
 
-_add personalizated headers_
+_add personalizated headers to 200 response_
 ```javascript
 const router = require('express').Router()
 const status = require('status-parser')
@@ -62,7 +74,7 @@ router.get('/', (req,res)=>{
 })
 ```
 
-_add personalizated cookie_
+_add personalizated cookie to 200 response_
 ```javascript
 const router = require('express').Router()
 const status = require('status-parser')
@@ -89,6 +101,20 @@ router.get('/', (req,res)=>{
     status.success(res,options).OK(data)
 
 })
+```
+
+_all response status from 1xx to 5xx_
+```javascript
+const router = require('express').Router()
+const status = require('status-parser')
+
+const methods = {
+    "1xx": status.information(),
+    "2xx": status.success(),
+    "3xx": status.redirect(),
+    "4xx": status.clientError(),
+    "5xx": status.serverError()
+}
 ```
 
 ## Author ✒️
