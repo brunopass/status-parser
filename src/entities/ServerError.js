@@ -4,9 +4,10 @@ const { onError } = require("../network/response")
 const Schema = require("../schema")
 
 /**
-* Server Error: contains most 5xx responses used.
-* @param  {[Object]} res: http response object
-*/
+    * Server Error: contains most 5xx responses used.
+    * @param  {[Object]} res: http response object
+    * @param  {[JSON]} options: {header: {"name":"value"}, cookie: {name: "value", val: "value", options: {"name":"value"}}}
+    */
 class ServerError{
     #res
     #options

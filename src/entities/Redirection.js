@@ -4,9 +4,10 @@ const { onSuccess } = require("../network/response")
 const Schema = require("../schema")
 
 /**
-* Redirection: contains most 3xx responses used.
-* @param  {[Object]} res: http response object
-*/
+    * Redirection: contains most 3xx responses used.
+    * @param  {[Object]} res: http response object
+    * @param  {[JSON]} options: {header: {"name":"value"}, cookie: {name: "value", val: "value", options: {"name":"value"}}}
+    */
 class Redirection{
     #res
     #options

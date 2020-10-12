@@ -4,9 +4,10 @@ const { onSuccess } = require("../network/response")
 const Schema = require("../schema")
 
 /**
-* Information: contains most 1xx responses used.
-* @param  {[Object]} res: http response object
-*/
+    * Information: contains most 1xx responses used.
+    * @param  {[Object]} res: http response object
+    * @param  {[JSON]} options: {header: {"name":"value"}, cookie: {name: "value", val: "value", options: {"name":"value"}}}
+    */
 class InformationalResponse{
     #res
     #options
