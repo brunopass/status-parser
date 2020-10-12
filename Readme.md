@@ -6,8 +6,8 @@ Node.js HTTP friendly responses handler
 
 ### Instalation
 _copy and paste this code into the terminal_
-```
-...
+```powershell
+npm install @brunopass/status-parser --save
 ```
 
 ### Examples
@@ -15,7 +15,7 @@ _copy and paste this code into the terminal_
 _return response 100 on success_
 ```javascript
 const router = require('express').Router()
-const status = require('status-parser')
+const status = require('@brunopass/status-parser')
 
 router.get('/', (req,res)=>{
 
@@ -27,7 +27,7 @@ router.get('/', (req,res)=>{
 _send response 201 on success_
 ```javascript
 const router = require('express').Router()
-const status = require('status-parser')
+const status = require('@brunopass/status-parser')
 
 router.get('/', (req,res)=>{
 
@@ -39,7 +39,7 @@ router.get('/', (req,res)=>{
 _add personalizated data to 202 response_
 ```javascript
 const router = require('express').Router()
-const status = require('status-parser')
+const status = require('@brunopass/status-parser')
 
 router.get('/', (req,res)=>{
 
@@ -55,7 +55,7 @@ router.get('/', (req,res)=>{
 _add personalizated headers to 200 response_
 ```javascript
 const router = require('express').Router()
-const status = require('status-parser')
+const status = require('@brunopass/status-parser')
 
 router.get('/', (req,res)=>{
 
@@ -77,7 +77,7 @@ router.get('/', (req,res)=>{
 _add personalizated cookie to 200 response_
 ```javascript
 const router = require('express').Router()
-const status = require('status-parser')
+const status = require('@brunopass/status-parser')
 
 router.get('/', (req,res)=>{
 
@@ -105,7 +105,7 @@ router.get('/', (req,res)=>{
 
 _all response status from 1xx to 5xx_
 ```javascript
-const status = require('status-parser')
+const status = require('@brunopass/status-parser')
 
 const methods = {
     "1xx": status.information(),
