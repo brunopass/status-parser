@@ -1,6 +1,6 @@
 # Status Parser
 
-Node.js HTTP friendly responses handler
+Express.js HTTP friendly responses handler
 
 ## Getting Started 🚀
 
