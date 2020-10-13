@@ -1,14 +1,16 @@
 {
   "name": "status-parser",
-  "version": "1.0.3",
-  "description": "",
+  "version": "1.0.4",
+  "description": "Express.js HTTP friendly responses handler",
   "main": "index.js",
   "keywords": [
+    "status-parser",
     "status",
     "express",
     "parse",
     "parser",
-    "javascript"
+    "javascript",
+    "http"
   ],
   "author": "bruno passarelli",
   "license": "MIT"
