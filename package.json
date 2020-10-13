@@ -10,7 +10,8 @@
     "parse",
     "parser",
     "javascript",
-    "http"
+    "http",
+    "backend"
   ],
   "author": "bruno passarelli",
   "license": "MIT"
