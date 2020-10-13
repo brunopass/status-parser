@@ -19,7 +19,7 @@ const status = require('status-parser')
 
 router.get('/', (req,res)=>{
 
-    const response = status.success().OK()
+    const response = status.success().OK() // => {"status":200,"message":"successful request","data":"successful request"}
 
 })
 ```
@@ -31,7 +31,7 @@ const status = require('status-parser')
 
 router.get('/', (req,res)=>{
 
-    status.success(res).Created()
+    status.success(res).Created() // => {"status":201,"message":"resource created","data":"resource created"}
 
 })
 ```
@@ -47,7 +47,7 @@ router.get('/', (req,res)=>{
         "friends": {}
     }
 
-    status.success(res).Accepted(data)
+    status.success(res).Accepted(data) // =>  {"status":202,"message":"request accepted","data":{"friends":{}}}
 
 })
 ```
@@ -114,6 +114,40 @@ const methods = {
     "4xx": status.clientError(),
     "5xx": status.serverError()
 }
+```
+
+_real world example_
+```javascript
+const router = require('express').Router()
+const status = require('status-parser')
+const {User} = require('./entities/user.js')
+
+router.post('/sign-in', (req,res)=>{
+
+    const {email,password} = req.body
+
+    new User()
+    .signIn(email,password)
+    .then(jwt => {
+
+        const options = {
+            cookie: {
+                "name": "token",
+                "val": jwt,
+                options:{
+                    "httpOnly":true
+                }
+            }
+        }
+
+        status.success(res,options).OK('signed in')
+
+    })
+    .catch(error => {
+        status.clientError(res).BadRequest(error.message)
+    })
+})
+
 ```
 
 ## Author ✒️
