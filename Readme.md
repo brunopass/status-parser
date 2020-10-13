@@ -4,7 +4,7 @@ Express.js HTTP friendly responses handler
 
 ## Getting Started 🚀
 
-### Instalation
+### Installation
 _copy and paste this code into the terminal_
 ```powershell
 npm install status-parser --save
