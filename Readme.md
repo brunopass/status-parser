@@ -12,17 +12,6 @@ npm install status-parser --save
 
 ### Examples
 
-_return response 100 on success_
-```javascript
-
-const status = require('status-parser')
-
-const response = status.success().OK() 
-
-console.log(response)// => {"status":200,"message":"successful request","data":"successful request"}
-
-```
-
 _send response 201 on success_
 ```javascript
 const router = require('express').Router()
@@ -112,6 +101,17 @@ router.get('/', (req,res)=>{
     status.success(res,options).OK(data)
 
 })
+```
+
+_return response 100 on success_
+```javascript
+
+const status = require('status-parser')
+
+const response = status.success().OK() 
+
+console.log(response)// => {"status":200,"message":"successful request","data":"successful request"}
+
 ```
 
 _all response status from 1xx to 5xx_
