@@ -103,7 +103,7 @@ router.get('/', (req,res)=>{
 })
 ```
 
-_return response 100 on success_
+_return response 200 object_
 ```javascript
 
 const status = require('status-parser')
