@@ -14,14 +14,13 @@ npm install status-parser --save
 
 _return response 100 on success_
 ```javascript
-const router = require('express').Router()
+
 const status = require('status-parser')
 
-router.get('/', (req,res)=>{
+const response = status.success().OK() 
 
-    const response = status.success().OK() // => {"status":200,"message":"successful request","data":"successful request"}
+console.log(response)// => {"status":200,"message":"successful request","data":"successful request"}
 
-})
 ```
 
 _send response 201 on success_
@@ -32,6 +31,18 @@ const status = require('status-parser')
 router.get('/', (req,res)=>{
 
     status.success(res).Created() // => {"status":201,"message":"resource created","data":"resource created"}
+
+})
+```
+
+_send error response 400_
+```javascript
+const router = require('express').Router()
+const status = require('status-parser')
+
+router.get('/', (req,res)=>{
+
+    status.clientError(res).BadRequest('this is an error message') // => {"status":400,"message":"bad request","error":"this is an error message"}
 
 })
 ```
