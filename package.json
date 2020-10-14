@@ -3,6 +3,7 @@
   "version": "1.0.9",
   "description": "Express.js HTTP friendly responses handler",
   "main": "index.js",
+  "repository": {"url": "https://github.com/brunopass/status-parser"},
   "keywords": [
     "status-parser",
     "status",
